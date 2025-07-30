@@ -55,24 +55,14 @@ jobs:
     name: API Smoke Tests
     runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres:17
-        env:
-          POSTGRES_DB: mycoredb
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup PostgreSQL
+        uses: ankane/setup-postgres@v1
+        with:
+          database: mycoredb
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -87,7 +77,7 @@ jobs:
 
       - name: Run API in background
         env:
-          ConnectionStrings__DefaultConnection: "Host=localhost;Database=mycoredb;Username=postgres;Password=postgres"
+          ConnectionStrings__DefaultConnection: "Host=localhost;Database=mycoredb;Username=runner;Password="
           ASPNETCORE_URLS: "http://0.0.0.0:5018"
         run: |
           dotnet run --project MyCore.Api/MyCore.Api.csproj --no-build --configuration Release &
