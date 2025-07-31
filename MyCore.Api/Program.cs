@@ -4,19 +4,16 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Check if running in Aspire context by looking for Aspire-specific configuration
-var isAspireContext = builder.Configuration.GetSection("Aspire").Exists();
+var defaultConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
-if (isAspireContext)
+if (string.IsNullOrEmpty(defaultConnection))
 {
-    // Use Aspire configuration
-    builder.AddNpgsqlDbContext<ApplicationDbContext>("mycoredb");
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 }
 else
 {
-    // Use standard Entity Framework configuration
-    builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    builder.AddNpgsqlDbContext<ApplicationDbContext>("mycoredb");
 }
 
 // Add services
