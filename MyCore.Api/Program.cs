@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 var defaultConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+var isRunningInAspire = builder.Environment.IsDevelopment() && string.IsNullOrEmpty(defaultConnection);
+var isRunningInCI = builder.Configuration["CI"] == "true";
 
-if (string.IsNullOrEmpty(defaultConnection))
+if (isRunningInAspire)
 {
     builder.AddNpgsqlDbContext<ApplicationDbContext>("mycoredb");
 }
@@ -44,7 +46,7 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     context.Database.EnsureCreated();
     
-    if (builder.Configuration["CI"] == "true")
+    if (isRunningInCI || isRunningInAspire)
     {
         DataSeeder.Seed(context);
     }
