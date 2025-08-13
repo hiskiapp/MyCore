@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore.AppHost", "MyCore.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore.Api", "MyCore.Api\MyCore.Api.csproj", "{7EEEEA1B-7B07-4CE6-9E40-CCA21FF45A45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore.UnitTests", "MyCore.UnitTests\MyCore.UnitTests.csproj", "{5EA92601-0D6A-4B48-8119-5A91AD49A80D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore.Api.UnitTests", "MyCore.Api.UnitTests\MyCore.Api.UnitTests.csproj", "{5EA92601-0D6A-4B48-8119-5A91AD49A80D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore.IntegrationTests", "MyCore.IntegrationTests\MyCore.IntegrationTests.csproj", "{169C08EA-995D-49F7-AB86-D094663797B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore.Api.IntegrationTests", "MyCore.Api.IntegrationTests\MyCore.Api.IntegrationTests.csproj", "{169C08EA-995D-49F7-AB86-D094663797B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
