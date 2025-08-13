@@ -1,7 +1,6 @@
 using System.Runtime.CompilerServices;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
 
 namespace MyCore.AI.Services;
 
@@ -41,13 +40,8 @@ public class LlmOrchestrator(Kernel kernel, IChatCompletionService chat, Convers
         }
         chatHistory.AddUserMessage(userInput);
 
-        var settings = new OpenAIPromptExecutionSettings
-        {
-            ReasoningEffort = "low"
-        };
-
         var fullAssistantText = new System.Text.StringBuilder();
-        await foreach (var delta in _chat.GetStreamingChatMessageContentsAsync(chatHistory, settings, _kernel, cancellationToken))
+        await foreach (var delta in _chat.GetStreamingChatMessageContentsAsync(chatHistory, null, _kernel, cancellationToken))
         {
             if (!string.IsNullOrEmpty(delta.Content))
             {
