@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyCore.Api\MyCore.Api.csproj" IsAspireProjectResource="true" />
+    <ProjectReference Include="..\MyCore.AI\MyCore.AI.csproj" IsAspireProjectResource="true" />
   </ItemGroup>
 
 </Project>

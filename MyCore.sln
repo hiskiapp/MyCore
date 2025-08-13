@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore.Api.UnitTests", "MyC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore.Api.IntegrationTests", "MyCore.Api.IntegrationTests\MyCore.Api.IntegrationTests.csproj", "{169C08EA-995D-49F7-AB86-D094663797B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore.AI", "MyCore.AI\MyCore.AI.csproj", "{BDE09AE6-91A0-41B4-8872-9F3470BF2EB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{169C08EA-995D-49F7-AB86-D094663797B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{169C08EA-995D-49F7-AB86-D094663797B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{169C08EA-995D-49F7-AB86-D094663797B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE09AE6-91A0-41B4-8872-9F3470BF2EB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE09AE6-91A0-41B4-8872-9F3470BF2EB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE09AE6-91A0-41B4-8872-9F3470BF2EB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE09AE6-91A0-41B4-8872-9F3470BF2EB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
